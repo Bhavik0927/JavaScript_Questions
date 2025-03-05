@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Events</title>
+</head>
+
+<body>
+    <p>Resize the browser window to fire the <code>resize</code> event.</p>
+    <p>Window height: <span id="height"></span></p>
+    <p>Window.outerHeight: <span id="outerHeight"></span></p>
+    <p>Window.outerWidth: <span id="outerWidth"></span></p>
+    <p>Window width: <span id="width"></span></p>
+
+    <script>
+        let height = document.getElementById('height');
+        let width = document.getElementById('width');
+        let outerHeight = document.getElementById('outerHeight')
+        let outerWidth = document.getElementById('outerWidth')
+
+        function updateSize(){
+            outerHeight.textContent = window.outerHeight;
+            outerWidth.textContent = window.outerWidth;
+            height.textContent = window.innerHeight;
+            width.textContent = window.innerWidth;
+        }
+
+        updateSize();
+        window.addEventListener('resize',updateSize);
+    </script>
+</body>
+
+</html>

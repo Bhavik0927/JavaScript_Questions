@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination</title>
+
+    <style>
+        body{
+            background-color: #000;
+            color: #f0f0f0;
+        }
+        
+        .pagination {
+          display: flex;
+          list-style: none;
+          padding: 0;
+        }
+        .pagination li {
+          margin: 5px;
+          cursor: pointer;
+          padding: 8px 12px;
+          background: #e60707;
+          /* border: 1px solid #ddd; */
+          border-radius: 50%;
+          
+        }
+        .pagination li.active {
+          background: #007bff;
+          color: white;
+        }
+        .pagination li:hover {
+          background: #ddd;
+          color: #000;
+        }
+      </style>
+</head>
+
+<body>
+    <h1>Pagination Example with API Data</h1>
+    <ul id="data-list"></ul>
+    <div>
+        <ul class="pagination" id="pagination"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!-- Event Bubbling is a concept in JavaScript where an event starts from the deepest target element and then propagates up through the parent elements, eventually reaching the root of the document (usually document or window). -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+</head>
+<body>
+    <h2>Event Bubbling</h2>
+    <div id="parent" style="padding: 20px; background-color: rgb(231, 210, 14);">
+        parent
+        <div id="child" style="padding: 20px; background-color: lightblue;">
+            child
+            <button id="button">Click me</button>
+        </div>
+    </div>
+    <script>
+        /* document.getElementById("button").addEventListener('click',()=> {alert('button clicked')})
+
+        document.getElementById("child").addEventListener('click',()=> {alert('child clicked')})
+
+        document.getElementById("parent").addEventListener('click',()=> {alert('parent clicked')}); */
+
+
+        // Stop event Bubbling
+        document.getElementById("button").addEventListener('click',(e)=> {alert('button clicked');
+            e.stopPropagation();
+        })
+    </script>
+</body>
+</html>

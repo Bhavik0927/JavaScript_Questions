@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+</head>
+<style>
+    #progress-container {
+        width: 100%;
+        background-color: #f3f3f3;
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 20px 0;
+    }
+
+    /* Actual progress bar */
+    #progress-bar {
+        width: 0%;
+        height: 30px;
+        background-color: #4caf50;
+        text-align: center;
+        line-height: 30px;
+        color: white;
+        transition: width 0.3s;
+    }
+
+    /* Styling the button */
+    button {
+        padding: 10px 20px;
+        margin: 10px 5px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div id="progress-container">
+        <div id="progress-bar">0%</div>
+    </div>
+
+    <!-- <button onclick="increaseProgress(10)">Increase progress</button> -->
+
+    <button onclick="startProgress()">Start</button>
+    <button onclick="stopProgress()">stop</button>
+    <button onclick="clearProgress()">Reset</button>
+    <script src="script.js"></script>
+</body>
+</html>

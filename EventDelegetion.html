@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation</title>
+</head>
+<body>
+    <ul id="Parent-item" style="cursor: pointer;">
+        <li>List 1</li>
+        <li>List 2</li>
+        <li>List 3</li>
+        <li>List 4</li>
+    </ul>
+
+    <script>
+        let items = document.getElementById("Parent-item");
+
+        items.addEventListener('click',(e)=>{
+            if(e.target && e.target.nodeName === 'LI'){
+                alert("You clicked on " + e.target.textContent);
+            }
+        })
+
+        const newLI = document.createElement('LI');
+        newLI.textContent = "Listo 5";
+        items.appendChild(newLI);
+    </script>
+</body>
+</html>
