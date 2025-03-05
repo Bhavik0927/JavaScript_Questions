@@ -1,5 +1,4 @@
 // Custom Map function
-
 const customMap = (arr,fn) =>{
     let result = [];
     for(let i = 0; i < arr.length; i++){
@@ -15,7 +14,6 @@ console.log(newArr);
 
 
 // Custom Filter function
-
 const customFilter = (arr,fn) =>{
     let result = [];
     for(let i = 0; i< arr.length; i++){
@@ -34,7 +32,6 @@ console.log('Even numbers:', evens);
 
 
 // Custom Reduce function
-
 const customReduce = (arr,fn,init) =>{
     let val = init;
     for(let i = 0; i< arr.length; i++){
