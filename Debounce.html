@@ -30,13 +30,14 @@
             console.log(data.products);
             data.products.map((prod,index) =>{
                let li = document.createElement("li");
-               
+               li.innerHTML = `<div style="background-color: #fff; color: #000; padding: 10px; margin: 10px; border-radius: 5px;">${prod.title}</div>`;
+               area.appendChild(li);
             })
         }
 
        
 
-        const handleBounce = debounce(handle,500);
+        const handleBounce = debounce(handle,300);
 
         const input = document.getElementById('search');
 
