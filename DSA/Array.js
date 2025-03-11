@@ -34,4 +34,29 @@ const subArraySum = (arr,sum) =>{
     return -1;
 }
 
-console.log(subArraySum([15,2,4,8,9,5,10,23], 23));
+// console.log(subArraySum([15,2,4,8,9,5,10,23], 23));
+
+
+
+
+/* Count the triplets */
+
+const countTriplets = (arr,sum) =>{
+    let n = arr.length;
+    let count = 0;
+
+    for(let i = 0; i< n-2; i++){
+        for(let j = i+1; j< n-1; j++){
+            for(let k = j+1; k<n; k++){
+                if(arr[i] + arr[j] + arr[k] === sum){
+                    count++;
+                }
+            }
+        }
+    }
+    return count;
+}
+
+const arr = [1, 2, 3, 4, 5];
+const targetSum = 9;
+console.log(countTriplets(arr, targetSum));
