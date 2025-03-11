@@ -59,4 +59,27 @@ const countTriplets = (arr,sum) =>{
 
 const arr = [1, 2, 3, 4, 5];
 const targetSum = 9;
-console.log(countTriplets(arr, targetSum));
+// console.log(countTriplets(arr, targetSum));
+
+
+// Kadan's Algorithm
+
+const maxSubArraySum = (arr) =>{
+    let currentSum = arr[0];
+    let totalSum = arr[0];
+
+    for(let i = 1; i < arr.length; i++){
+        if(currentSum > 0){
+            currentSum += arr[i];
+        }else{
+            currentSum = arr[i]
+        }
+        if(currentSum > totalSum){
+            totalSum = currentSum;
+        }
+    }
+    return totalSum;
+}
+
+console.log(maxSubArraySum([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
