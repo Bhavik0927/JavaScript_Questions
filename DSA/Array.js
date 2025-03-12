@@ -175,7 +175,45 @@ const Rearranged = (arr) =>{
     return temp;
 }
 
-console.log(Rearranged([1, 2, 3, 4, 5, 6, 7]))
+// console.log(Rearranged([1, 2, 3, 4, 5, 6, 7]))
+
+
+
+
+// **  Sort an array of 0s, 1s and 2s **
+
+// Brute force method
+const sorted = (arr) =>{
+    return arr.sort((a,b) => a-b);
+}
+
+// console.log(sorted([2, 0, 2, 1, 1, 0]))
+
+// Optimal Approch method
+const sorted1 = (arr) =>{
+    let low = 0, mid = 0, high = arr.length -1;
+    let temp;
+
+    while(mid <= high){
+        if(arr[mid] == 0){
+            temp = arr[low];
+            arr[low] = arr[mid];
+            arr[mid] = temp;
+            low++;
+            mid++;
+        }else if(arr[mid] == 1){
+            mid++;
+        }else{
+            temp = arr[mid];
+            arr[mid] = arr[high];
+            arr[high] = temp;
+            high--;
+        }
+    }
+    return arr;
+}
+
+console.log(sorted1([2, 0, 2, 1, 1, 0]))
 
 
 
