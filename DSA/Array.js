@@ -153,8 +153,29 @@ const mergeArrayOptimal = (arr1,arr2) =>{
 let arr3 =  [ 1, 3, 5 ]
 let arr4 =  [ 2, 4, 6 ];
 
-console.log(mergeArrayOptimal(arr3,arr4));
+// console.log(mergeArrayOptimal(arr3,arr4));
 
+
+
+// # Rearranged Array alternative #
+
+const Rearranged = (arr) =>{
+    let temp = [];
+
+    let low = 0;
+    let high = arr.length -1;
+
+    while(low <= high){
+        if(low !== high){
+            temp.push(arr[high--]);
+        }
+        temp.push(arr[low++]);
+        
+    }
+    return temp;
+}
+
+console.log(Rearranged([1, 2, 3, 4, 5, 6, 7]))
 
 
 
