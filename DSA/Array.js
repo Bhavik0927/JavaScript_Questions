@@ -258,9 +258,54 @@ const eqilibrimOptimal = (arr) =>{
     }
 }
 
-console.log(eqilibrimOptimal([1, 3, 5, 2, 2]));
+// console.log(eqilibrimOptimal([1, 3, 5, 2, 2]));
 
 
+
+// ## Leaders in an Array ##
+
+// Brute forced 
+const findLeaders = (arr) =>{
+    let n = arr.length;
+    let result = [];
+
+    for(let i = 0; i<n; i++){
+        let leader = true;
+
+        for(let j = i+1; j<n; j++){
+            if(arr[i] < arr[j]){
+                leader = false;
+                break;
+            }
+        }
+        if(leader){
+            result.push(arr[i]);
+        }
+    }
+    return result;
+}
+
+// console.log(findLeaders([16, 17, 4, 3, 5, 2]))
+
+
+// Optimal Approch
+// we started from right to left
+const findLeadersByOptimal = (arr) =>{
+    let n = arr.length;
+    let leaders = [];
+    let maxRight = arr[n-1];
+    leaders.push(maxRight);
+
+    for(let i = n-2; i>=0; i--){
+        if(arr[i] > maxRight){
+            maxRight = arr[i];
+            leaders.push(maxRight);
+        }
+    }
+    return leaders.reverse();
+}
+
+console.log(findLeadersByOptimal([16, 17, 4, 3, 5, 2]))
 
 
 
