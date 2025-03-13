@@ -213,7 +213,58 @@ const sorted1 = (arr) =>{
     return arr;
 }
 
-console.log(sorted1([2, 0, 2, 1, 1, 0]))
+// console.log(sorted1([2, 0, 2, 1, 1, 0]))
+
+
+// ## Equilibrium index of an Array ##
+
+// Brute forced approch
+const eqilibrim = (arr) =>{
+    let n = arr.length; 
+    
+    for(let i = 0; i<n; i++){
+
+        let leftSum = 0, rightSum = 0;
+
+        for(let j = 0; j<i; j++){
+            leftSum += arr[j];
+        }
+
+        for(let j = i+1; j<n; j++){
+            rightSum += arr[j];
+        }
+
+        if(leftSum === rightSum){
+            return i;
+        }
+    }
+    return -1;
+}
+
+
+// console.log(eqilibrim([1, 3, 5, 2, 2]));
+
+// Optimal Approch
+
+const eqilibrimOptimal = (arr) =>{
+
+    const totalSum = arr.reduce((acc,curr) => acc+ curr, 0 )
+    let leftSum = 0;
+
+    for(let i = 0; i< arr.length; i++){
+        let rightSum = totalSum - leftSum - arr[i];
+        if(leftSum === rightSum){ return i;}
+        leftSum += arr[i];
+    }
+}
+
+console.log(eqilibrimOptimal([1, 3, 5, 2, 2]));
+
+
+
+
+
+
 
 
 
