@@ -253,7 +253,7 @@ const eqilibrimOptimal = (arr) =>{
 
     for(let i = 0; i< arr.length; i++){
         let rightSum = totalSum - leftSum - arr[i];
-        if(leftSum === rightSum){ return i;}
+        if(leftSum === rightSum){ return i;}``
         leftSum += arr[i];
     }
 }
@@ -356,7 +356,49 @@ const findPlatformsOptimal = (arr,dep) =>{
     return maxPlatform;
 }
 
-console.log(findPlatformsOptimal([900, 940, 950, 1100, 1500, 1800],      [910, 1200, 1120, 1130, 1900, 2000]));
+// console.log(findPlatformsOptimal([900, 940, 950, 1100, 1500, 1800],      [910, 1200, 1120, 1130, 1900, 2000]));
+
+
+
+// ## Reverse array in groups ##
+
+// Brute force 
+const reverseArrayInGroup = (arr,k) =>{
+    let n = arr.length;
+    let result = [];
+
+    for(let i = 0; i< n; i = i+k){
+        let temp = arr.slice(i,i+k).reverse();
+        result.push(...temp);
+    }
+    return result;
+}
+
+// console.log(reverseArrayInGroup([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
+
+
+
+//  Optimal Approch
+const reverseArrayInGroupOptimal = (arr,k) =>{
+    let n = arr.length;
+
+    for(let i = 0; i<n; i = i+k){
+        let left = i;
+        let right = Math.min(i+k-1, n-1);
+
+        while(left < right){
+            let temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
+    }
+    return arr;
+}
+
+console.log(reverseArrayInGroupOptimal([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
+
 
 
 
