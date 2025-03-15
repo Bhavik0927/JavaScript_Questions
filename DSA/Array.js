@@ -305,12 +305,58 @@ const findLeadersByOptimal = (arr) =>{
     return leaders.reverse();
 }
 
-console.log(findLeadersByOptimal([16, 17, 4, 3, 5, 2]))
+// console.log(findLeadersByOptimal([16, 17, 4, 3, 5, 2]))
 
 
 
 
+// ## Minimum Platforms Required for Trains ##
 
+// Brute forced Method
+const findPlatforms = (arr,dep) =>{
+    let n = arr.length;
+    let maxPlatform = 1;
+
+    for(let i = 0; i<n; i++){
+        let Platforms = 1;  // current train req. platform
+        for(let j = i+1; j<n; j++){
+            if(arr[j] <= dep[i] && dep[j] >= arr[i]){
+                Platforms++;
+            }
+        }
+
+        maxPlatform = Math.max(maxPlatform,Platforms);
+    }
+    return maxPlatform;
+}
+
+// console.log(findPlatforms([900, 940, 950, 1100, 1500, 1800], 
+//     [910, 1200, 1120, 1130, 1900, 2000]));
+
+
+// Optimal Approch (Sorting + Two pointers)
+const findPlatformsOptimal = (arr,dep) =>{
+    let n = arr.length;
+    arr.sort((a,b) => a-b);
+    dep.sort((a,b) => a-b);
+
+    let platforms = 1, maxPlatform = 1;
+    let i=0, j = 0;
+
+    while(i < n && j< n){
+        if(arr[i] <= dep[j]){
+            platforms++;
+            i++;
+        }else{
+            platforms--;
+            j++;
+        }
+    }
+    maxPlatform = Math.max(platforms,maxPlatform);
+    return maxPlatform;
+}
+
+console.log(findPlatformsOptimal([900, 940, 950, 1100, 1500, 1800],      [910, 1200, 1120, 1130, 1900, 2000]));
 
 
 
