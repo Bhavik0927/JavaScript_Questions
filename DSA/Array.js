@@ -397,7 +397,39 @@ const reverseArrayInGroupOptimal = (arr,k) =>{
     return arr;
 }
 
-console.log(reverseArrayInGroupOptimal([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
+// console.log(reverseArrayInGroupOptimal([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
+
+
+// ## Partition of an array ##
+
+const partitionOfArray = (arr,pivot) =>{
+    // 0 - i-1 ==> <= pivot
+    // i - j-1 ==> >= pivot
+    // j - n ==> unknown
+
+    console.log("Pivot point is ->", pivot);
+
+    let i = 0, j=0;
+    while(i < arr.length){
+        if(arr[i] > pivot){
+            i++;
+        }else{
+            let temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j++;
+        }
+    }
+    console.log("pivot index is => ", j-1);
+    return arr;
+
+}
+
+let arr12 = [32,33,31,4,5,1,2];
+
+
+console.log(partitionOfArray(arr12,5));
 
 
 
