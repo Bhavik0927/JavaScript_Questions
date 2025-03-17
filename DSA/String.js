@@ -25,19 +25,19 @@ const removeParanthesis = (str) => {
 // console.log(removeParanthesis("(()())(())"));
 
 // Reverse String;
-const reverseString = (str) =>{
+const reverseString = (str) => {
     return str.split(' ').reverse().join(' ');
 }
 
 // console.log(reverseString("If the world is ending "));
 
 // Reverse By Two Pointers
-const reverseStringTwoPointers = (str) =>{
+const reverseStringTwoPointers = (str) => {
     const chars = str.split('');
     let start = 0;
 
-    const reverse = (start,end) =>{
-        while(start < end){
+    const reverse = (start, end) => {
+        while (start < end) {
             const temp = chars[start];
             chars[start] = chars[end];
             chars[end] = temp;
@@ -46,10 +46,10 @@ const reverseStringTwoPointers = (str) =>{
         }
     }
 
-    reverse(0,chars.length - 1);
+    reverse(0, chars.length - 1);
 
-    for(let i = 0; i< chars.length; i++){
-        if(chars[i] === ' '){
+    for (let i = 0; i < chars.length; i++) {
+        if (chars[i] === ' ') {
             reverse(start, i - 1);
             start = i + 1;
         }
@@ -59,4 +59,36 @@ const reverseStringTwoPointers = (str) =>{
     return chars.join('');
 }
 
-console.log(reverseStringTwoPointers("If the world is ending "));
+// console.log(reverseStringTwoPointers("If the world is ending "));
+
+
+// ## Permute String ##
+
+const permuteString = (str) => {
+    let result = [];
+
+    const swap = (arr,i, j) => {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    const permute = (arr, left) => {
+        if (left === arr.length - 1) {
+            result.push(arr.join(""));
+            return;
+        }
+
+
+        for (let i = left; i < arr.length; i++) {
+            swap(arr,i,left);
+            permute(arr, left + 1);
+            swap(arr, i,left);
+        }
+    }
+
+    permute(str.split(""),0);
+    return result;
+
+}
+
+console.log(permuteString("ABC"))
