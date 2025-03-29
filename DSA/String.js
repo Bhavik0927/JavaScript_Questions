@@ -104,4 +104,13 @@ const truncate = (str,maxLength) =>{
     }else return str;
 }
 
-console.log(truncate("Helloooooooooo world!",3)); // Hell...
+// console.log(truncate("Helloooooooooo world!",3)); // Hell...
+
+
+// Is Palindrome Number
+
+const isPalindrome = (num) =>{
+    return num === Number(num.toString().split("").reverse().join("")) ;
+}
+
+ console.log(isPalindrome(901)); // true      
