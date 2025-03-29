@@ -91,4 +91,17 @@ const permuteString = (str) => {
 
 }
 
-console.log(permuteString("ABC"))
+// console.log(permuteString("ABC"))
+
+
+// Truncate the string
+// String str = "Hello world!"; maxLength = 4;
+// Output: "Hell..."
+
+const truncate = (str,maxLength) =>{
+    if(str.length >= maxLength){
+        return str.slice(0,maxLength) + "...";
+    }else return str;
+}
+
+console.log(truncate("Helloooooooooo world!",3)); // Hell...

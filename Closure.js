@@ -37,8 +37,7 @@ document.getElementById("orange").onclick = clickHandler("orange");
 
 document.getElementById("blue").onclick = clickHandler("blue"); */
 
-
-/*function createCounter(){
+function createCounter(){
     let count = 0;
 
     return {
@@ -52,7 +51,7 @@ document.getElementById("blue").onclick = clickHandler("blue"); */
         },
         reset: function (){
             count = 0;
-            console.log(`count after increment : ${count}`)
+            console.log(`count after reset : ${count}`)
         },
         totalCount:function(){
             console.log(`Total count is ${count}`)
@@ -66,8 +65,9 @@ counter.increment();
 counter.increment();
 counter.increment();
 counter.decrement()
-counter.totalCount(); */
-
+counter.totalCount(); 
+counter.reset();
+counter.totalCount();
 
 
 
