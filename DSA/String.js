@@ -136,7 +136,7 @@ const hammingDistance = (str1, str2) => {
     return count;
 }
 
-console.log(hammingDistance("hello", "hrlle")); // 2
+//  console.log(hammingDistance("hello", "hrlle")); // 2
 
 // 2nd Implementation
 const hammingDistance2 = (str1, str2) => {
@@ -165,4 +165,6 @@ const hammingDistance2 = (str1, str2) => {
     return count;
 }
 
-console.log(hammingDistance2(3, 5))
+// console.log(hammingDistance2(3, 5))
+
+
