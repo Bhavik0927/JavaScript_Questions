@@ -7,7 +7,7 @@ const MinStack1 = () =>{
             stack.push(x);
             minElm = x;
         }else{
-            if(x >= minStack){
+            if(x >= minElm){
                 stack.push(x);
             }else if(x < minElm){
                 stack.push(2*x - minElm);
@@ -41,8 +41,18 @@ const MinStack1 = () =>{
         return minElm;
     }
 
-    return {push,pop,peek,getMin};
+    return {push,pop,peek,getMin,stack};
 }
+
+const st = MinStack1();
+
+st.push(5);
+st.push(2);
+st.push(1);
+st.pop();
+
+console.log(st.stack);
+console.log(st.getMin())
 
 
 
