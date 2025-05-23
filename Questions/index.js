@@ -19,4 +19,20 @@ const  isTrueValue = (arr) =>{
 }
 
 const arr1 = [true, false, false, true, false];
-console.log(isTrueValue(arr1));
+// console.log(isTrueValue(arr1));
+
+
+// 3) Converting Objects to Arrays
+
+const obj = { a: 1, b: 2, c: 3 };
+
+console.log(Object.keys(obj) );
+console.log(Object.values(obj));
+console.log(Object.entries(obj));
+
+const arrayOfAnObjects = Object.entries(obj).map(([key,value]) =>{
+    return {[key]: value}
+});
+
+console.log(arrayOfAnObjects);
+
